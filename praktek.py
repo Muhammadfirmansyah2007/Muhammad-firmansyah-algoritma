@@ -1,17 +1,27 @@
-#input nilai mahasiswa
-tugas = int(input("Nilai Tugas : "))
-uts = int(input("Nilai UTS : "))
-uas = int(input("Nilai UAS : "))
-kehadiran = int(input("Kehadiran : "))
+#input 
+nama = input("Masukkan Nama Pelanggan : ")
+total_belanja = int(input("Masukkan Total Belanja : "))
 
-#proses
-nilai_akhir = (20/100 * tugas) + (30/100 * uts) + (50/100 * uas)
-
-print("Nilai Akhir :", nilai_akhir)
-
-if nilai_akhir >= 85 and kehadiran >= 90 and nilai_akhir % 2 == 0:
-    print("Status : LULUS DENGAN PREDIKAT")
-elif nilai_akhir >= 75 and kehadiran >= 80:
-    print("Status : LULUS")
+#proses/diskon
+if total_belanja >= 500000:
+    diskon = total_belanja * 10 / 100
+elif total_belanja >= 200000 :
+    diskon = total_belanja * 5 / 100
 else:
-    print("Status : BELUM LULUS")
+    diskon = 0
+
+#bonus 
+if total_belanja >= 1000000:
+    bonus = 50000
+else:
+    bonus = 0
+
+total_bayar = total_belanja - diskon 
+
+#output
+print("=============== STRUK PEMBELIAN =====================")
+print("Nama Pelanggan : ", nama)
+print("Total Belanja : Rp.", total_belanja)
+print("Diskon : Rp.", diskon)
+print("bonus : Rp.", bonus)
+print("Total Yang Harus Di Bayar : Rp.", total_bayar)
